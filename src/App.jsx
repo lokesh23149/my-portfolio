@@ -6,10 +6,12 @@ import Header from "./components/header";
 import Hero from "./components/hero";
 import Project from "./components/project";
 import Resume from "./components/Resume";
+import BackgroundFX from "./components/BackgroundFX";
 
 function App() {
   return (
     <div className="App">
+      <BackgroundFX />
       <Header />
       <Hero/>
       <About/>

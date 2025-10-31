@@ -19,20 +19,44 @@ export default function About() {
 
   const config = {
     myself:
-      "Hi, I’m Lokeshwaran 👋 An enthusiastic Full Stack Developer who loves building powerful and user-friendly web apps.",
+      "Hi, I’m Lokeshwaran 👋 I build clean, user‑friendly products with modern web tech.",
     myself2:
-      "I enjoy working with both frontend and backend using React, Node.js, and MongoDB. I love learning, building, and solving real-world problems through code.",
+      "From React on the front to APIs on the back, I focus on performance, accessibility, and great developer experience.",
     skills: [
-      "HTML",
-      "CSS",
-      "JAVASCRIPT",
-      "TAILWIND",
-      "REACT.JS",
-      "JAVA",
-      "SQL",
-
+      { name: "HTML", percent: 95 },
+      { name: "CSS", percent: 92 },
+      { name: "JavaScript", percent: 88 },
+      { name: "TailwindCSS", percent: 90 },
+      { name: "React.js", percent: 85 },
+      { name: "Java", percent: 75 },
+      { name: "Spring Boot", percent: 20 },
+      { name: "SQL", percent: 77 },
     ],
   };
+
+  const [displayedPercents, setDisplayedPercents] = useState(() => config.skills.map(() => 0));
+
+  useEffect(() => {
+    if (!animate) return;
+    let frames = 0;
+    const durationMs = 900;
+    const startTs = performance.now();
+    let rafId;
+    const tick = (now) => {
+      frames++;
+      const t = Math.min(1, (now - startTs) / durationMs);
+      // easeOutCubic
+      const eased = 1 - Math.pow(1 - t, 3);
+      setDisplayedPercents(
+        config.skills.map((s) => Math.round(s.percent * eased))
+      );
+      if (t < 1) {
+        rafId = requestAnimationFrame(tick);
+      }
+    };
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [animate]);
 
   return (
     <>
@@ -40,11 +64,11 @@ export default function About() {
       <section
         ref={sectionRef}
         id="about"
-        className="flex flex-col md:flex-row py-20 bg-clr3  "
+       className="w-full min-h-screen animated-bg flex flex-col md:flex-row items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
       >
         {/* Left image panel */}
         <div
-          className={`md:w-1/2 transition-all duration-700 ease-out ${
+          className={`md:w-1/2 transition-all duration-700 ease-out transform hover:scale-[1.01] ${
             animate ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
         >
@@ -59,7 +83,7 @@ export default function About() {
             }`}
           >
             <h1
-              className="font-bold border-b-2 border-teal-700 w-fit text-3xl mb-4 transform transition-transform duration-500 delay-300 ease-out"
+              className="font-bold border-b-2 border-teal-400 w-fit text-3xl mb-4 transform transition-transform duration-500 delay-300 ease-out"
               style={{
                 transform: animate ? "translateY(0)" : "translateY(20px)",
               }}
@@ -68,36 +92,37 @@ export default function About() {
             </h1>
             <div className="font-medium font-hero-font">
               <p
-                className="my-5 transition duration-500 delay-400"
+                className="my-5 transition duration-500 delay-400 text-slate-200"
                 style={{ opacity: animate ? 1 : 0 }}
               >
                 {config.myself}
               </p>
               <p
-                className="my-3 transition duration-500 delay-500"
+                className="my-3 transition duration-500 delay-500 text-slate-300"
                 style={{ opacity: animate ? 1 : 0 }}
               >
                 {config.myself2}
               </p>
 
-              {/* Skill badges */}
-              <div className="flex flex-wrap gap-3 mt-4 ">
+              {/* Skill bars */}
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {config.skills.map((skill, index1) => (
-                  <a href="#">
-                    <span
-                      key={index1}
-                      className={`px-3 py-1 bg-white text-black rounded-full shadow-md transition-all ease-out duration-500 `}
-                      style={{
-                        opacity: animate ? 1 : 0,
-                        transform: animate
-                          ? "translateY(0)"
-                          : "translateY(15px)",
-                        transitionDelay: `${index1 * 100 + 500}ms`,
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  </a>
+                  <div key={index1} className="w-full rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow hover:shadow-md transition">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-slate-100">{skill.name}</span>
+                      <span className="text-sm text-emerald-300">{displayedPercents[index1]}%</span>
+                    </div>
+                    <div className="h-2.5 w-full rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={displayedPercents[index1]}>
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 transition-all duration-700 ease-out"
+                        style={{
+                          width: `${displayedPercents[index1]}%`,
+                          boxShadow: "0 0 12px rgba(16,185,129,0.35)",
+                          transitionDelay: `${index1 * 120 + 300}ms`,
+                        }}
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

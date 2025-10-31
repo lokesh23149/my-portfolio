@@ -4,12 +4,14 @@ import { BsWhatsapp } from "react-icons/bs";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import loki2 from "../assets/lokeshwaran.jpg";
+import loki2 from "../assets/lokii.jpg";
 
 import {
   AiFillInstagram,
   AiFillFacebook,
   AiFillTwitterSquare,
+  AiFillLinkedin,
+  AiFillX,
 } from "react-icons/ai";
 
 export default function Hero() {
@@ -20,51 +22,49 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="w-full min-h-screen flex flex-col md:flex-row items-center justify-center px-4 md:px-20 py-20 bg-clr2 gap-10"
+       className="w-full min-h-screen animated-bg flex flex-col md:flex-row items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
     >
       {/* Left Side – Text + Icons */}
       <div
         className="flex flex-col items-start text-left max-w-md rounded-xl p-6 transition duration-300"
         data-aos="fade-right"
       >
-        <h1 className="text-4xl font-bold text-black font-hero-font leading-tight">
-          Hi,<br /> I'm Lokeshwaran
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight transition-transform duration-300 hover:-translate-y-0.5 tracking-tight">
+          <span className="bg-clip-text text-transparent accent-gradient">Hi,<br /> I'm Lokeshwaran</span>
         </h1>
-        <p className="text-lg text-gray-700 mt-2">I'm a Full Stack Developer</p>
+        <p className="text-xl text-slate-300 mt-2">Full‑Stack Developer crafting fast, modern web apps</p>
 
         {/* Social Icons */}
         <div className="flex gap-4 pt-4" data-aos="zoom-in" data-aos-delay="300">
           <a
-            href="https://www.instagram.com/this_is_loki__/" target="_blank"
-            className="hover:text-purple-600"
+            href="https://www.instagram.com/this__is__loki___/" target="_blank"
+            className="hover:text-fuchsia-400"
           >
             <AiFillInstagram size={30} />
           </a>
-          <a href="#" className="hover:text-green-500">
-            <AiFillTwitterSquare size={30} />
+          <a href="https://www.linkedin.com/in/lokeshwaran4" className="hover:text-sky-400">
+            <AiFillLinkedin size={30} />
           </a>
-          <a href="#" className="hover:text-blue-600">
+          <a href="https://www.facebook.com/share/17Z71dDnSH/" className="hover:text-blue-700"
+          >
             <AiFillFacebook size={30} />
+          </a><a href="https://x.com/LokeshLoke9386?t=DOKiD-w0cYTSbSKp9KQjKw&s=09" className="hover:text-gray-500"
+          >
+            <AiFillTwitterSquare size={30} />
           </a>
         </div>
       </div>
 
       {/* Right Side – Image */}
       <div
-        className="border-2 border-teal-500 rounded-full p-2 bg-white shadow-md hover:shadow-lg transition duration-300"
+        className="border-2 border-teal-500 rounded-full p-2 bg-white/90 shadow-md hover:shadow-teal-600/30 hover:shadow-2xl transition duration-300 transform hover:rotate-1"
         data-aos="fade-left"
         data-aos-delay="200"
       >
         <img
           src={loki2}
           alt="Lokeshwaran"
-          className="rounded-full object-cover hover:scale-105 transition-transform duration-300"
-          style={{
-            height: "300px",
-            width: "300px",
-            boxShadow: "0px 10px 30px rgb(0, 136, 122)",
-            border: "5px solid #00887A",
-          }}
+          className="rounded-full object-cover h-72 w-72 md:h-80 md:w-80 hover:scale-105 transition-transform duration-300 ring-4 ring-teal-500/60"
         />
       </div>
     </section>
