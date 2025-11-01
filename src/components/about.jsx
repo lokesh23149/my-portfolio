@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import heroimg from "../assets/heroimg.png";
+import heroimg from "../assets/Heroimgsmall.png";
 import Header from "./header";
 
 export default function About() {

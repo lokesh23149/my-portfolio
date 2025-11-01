@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import Ecommerce from "../assets/Ecommerce.png";
 import weatherapp from "../assets/weather-app.jpg";
+=======
+import Ecommerce from "../assets/Ecommercesmall.png"
+import weatherapp from "../assets/Weathersmall.jpg";
+>>>>>>> 82a50febb53e2c7e685c23e6f2747cf50677e903
 import todolist from "../assets/todo-list.jpg";
 import React from "react";
 import Header from "./header";
