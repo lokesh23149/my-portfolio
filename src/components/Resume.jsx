@@ -4,7 +4,7 @@ import React from "react";
 import Header from "./header";
 
 export default function Resume() {
-  const resumePath = "/resume.jpg";
+  const resumePath = "/resume.png";
 
   return (
     <>
