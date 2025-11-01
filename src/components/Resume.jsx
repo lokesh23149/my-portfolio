@@ -16,15 +16,15 @@ export default function Resume() {
       >
         {/* Left Image Section */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <div className="group relative w-[320px] md:w-[380px]">
-            <div
-              className="absolute -inset-0.5 rounded-2xl blur-lg opacity-40"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--acc1), var(--acc3))",
-              }}
-            />
-            <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1 overflow-hidden">
+            <div className="group relative w-[320px] md:w-[380px]">
+              <div
+                className="absolute -inset-0.5 rounded-2xl blur-lg opacity-40"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, var(--acc1), var(--acc3))",
+                }}
+              />
+              <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1 overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
                 <span
                   className="h-3 w-3 rounded-full"

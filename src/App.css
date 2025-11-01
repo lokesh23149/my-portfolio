@@ -39,6 +39,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile performance optimizations */
+* {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.animated-bg::before {
+  will-change: transform;
+}
+
+.twinkle-layer {
+  will-change: background-position;
+}
+
+.stars-layer {
+  will-change: background-position;
+}
+
 /* Subtle animated background overlay for sections */
 .animated-bg {
   position: relative;
@@ -53,20 +75,20 @@ html {
     radial-gradient(1200px 600px at 10% -10%, rgba(20,184,166,0.15), transparent 60%),
     radial-gradient(800px 400px at 110% 10%, rgba(99,102,241,0.12), transparent 60%),
     radial-gradient(1000px 500px at 50% 120%, rgba(56,189,248,0.10), transparent 60%);
-  animation: bgFloat 28s linear infinite alternate;
+  animation: bgFloat 20s linear infinite alternate;
 }
 
 @keyframes bgFloat {
   0% { transform: translate3d(0,0,0) scale(1); }
-  50% { transform: translate3d(-2%, 1%, 0) scale(1.02); }
-  100% { transform: translate3d(2%, -1%, 0) scale(1); }
+  50% { transform: translate3d(-1%, 0.5%, 0) scale(1.01); }
+  100% { transform: translate3d(1%, -0.5%, 0) scale(1); }
 }
 
 /* Floating orb animations for BackgroundFX component */
-@keyframes float1 { 0% { transform: translate(0,0) } 50% { transform: translate(20px, -15px) } 100% { transform: translate(0,0) } }
-@keyframes float2 { 0% { transform: translate(0,0) } 50% { transform: translate(-25px, 10px) } 100% { transform: translate(0,0) } }
-@keyframes float3 { 0% { transform: translate(0,0) } 50% { transform: translate(30px, 20px) } 100% { transform: translate(0,0) } }
-@keyframes float4 { 0% { transform: translate(0,0) } 50% { transform: translate(-15px, -25px) } 100% { transform: translate(0,0) } }
+@keyframes float1 { 0% { transform: translate(0,0) } 50% { transform: translate(15px, -10px) } 100% { transform: translate(0,0) } }
+@keyframes float2 { 0% { transform: translate(0,0) } 50% { transform: translate(-20px, 8px) } 100% { transform: translate(0,0) } }
+@keyframes float3 { 0% { transform: translate(0,0) } 50% { transform: translate(25px, 15px) } 100% { transform: translate(0,0) } }
+@keyframes float4 { 0% { transform: translate(0,0) } 50% { transform: translate(-10px, -20px) } 100% { transform: translate(0,0) } }
 
 /* Accent theme variables */
 :root {
@@ -98,13 +120,13 @@ html {
     radial-gradient(circle at 70% 30%, color-mix(in oklab, var(--acc1) 40%, transparent) 2px, transparent 2px),
     radial-gradient(circle at 85% 60%, color-mix(in oklab, var(--acc3) 35%, transparent) 1.5px, transparent 1.5px);
   background-size: 400px 400px, 500px 500px, 450px 450px, 550px 550px;
-  animation: twinkleDrift 40s linear infinite;
+  animation: twinkleDrift 30s linear infinite;
   opacity: .25;
   pointer-events: none;
 }
 @keyframes twinkleDrift {
   0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-  50% { background-position: 40px -30px, -50px 20px, 30px 35px, -20px -25px; }
+  50% { background-position: 30px -20px, -40px 15px, 25px 30px, -15px -20px; }
   100% { background-position: 0 0, 0 0, 0 0, 0 0; }
 }
 
@@ -121,12 +143,93 @@ html {
     radial-gradient(1px 1px at 80% 70%, rgba(255,255,255,0.85), transparent 2px),
     radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.8), transparent 2px);
   background-size: 700px 700px;
-  animation: starsDrift 120s linear infinite;
+  animation: starsDrift 90s linear infinite;
   opacity: .35;
   pointer-events: none;
 }
 @keyframes starsDrift {
   0% { background-position: 0 0; }
-  50% { background-position: 80px -60px; }
+  50% { background-position: 60px -45px; }
   100% { background-position: 0 0; }
+}
+
+/* About section animations - lightweight and performant */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.about-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.about-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out 0.2s forwards;
+  will-change: transform, opacity;
+}
+
+/* Subtle hover effects for about section */
+.about-image:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+.about-title:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.skill-bar:hover {
+  transform: translateX(5px);
+  transition: transform 0.2s ease;
+}
+
+/* Disable animations on mobile to prevent lag */
+@media (max-width: 767px) {
+  .animated-bg::before {
+    animation: none;
+  }
+  .stars-layer,
+  .twinkle-layer {
+    animation: none;
+  }
+  .about-fade-in-up,
+  .about-fade-in-left {
+    animation: none;
+  }
+  .about-image:hover,
+  .about-title:hover,
+  .skill-bar:hover {
+    transform: none;
+  }
+}
+
+/* Framer Motion optimizations for mobile */
+@media (max-width: 767px) {
+  * {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
 }

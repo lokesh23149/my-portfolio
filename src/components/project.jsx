@@ -43,13 +43,13 @@ export default function Project() {
           {Projects.map((Project, index) => (
             <div
               key={index}
-              className="group bg-white/5 rounded-lg shadow-md ring-1 ring-white/10 backdrop-blur-sm hover:ring-white/20 hover:shadow-xl hover:shadow-emerald-400/20 hover:scale-[1.02] transition-transform duration-200"
+              className="group bg-white/5 rounded-lg shadow-md ring-1 ring-white/10 backdrop-blur-sm hover:ring-white/20 hover:shadow-xl hover:shadow-emerald-400/20 hover:scale-[1.02] transition-transform duration-300"
             >
               <div className="overflow-hidden">
                 <img
                   src={Project.image}
                   alt={Project.disc}
-                  className="rounded-t-lg h-[200px] w-full object-cover group-hover:scale-105 transition-transform duration-200"
+                  className="rounded-t-lg h-[200px] w-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">

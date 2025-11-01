@@ -1,0 +1,4 @@
+- [x] Optimize animations for mobile performance by reducing durations in App.css
+- [x] Update hero.jsx to remove purple colors from profile image and add hover effect
+- [x] Verify skills animation in about.jsx is working properly
+- [x] Test the changes on mobile
