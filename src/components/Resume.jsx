@@ -24,7 +24,7 @@ export default function Resume() {
                   "linear-gradient(135deg, var(--acc1), var(--acc3))",
               }}
             />
-            <div className="resume-image relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-1 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] overflow-hidden">
+            <div className="resume-image relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-1 group-hover:scale-105 group-hover:shadow-2xl group-hover:shadow-[0_0_40px_rgba(var(--acc1-rgb),0.4)] overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
                 <span
                   className="h-3 w-3 rounded-full"
