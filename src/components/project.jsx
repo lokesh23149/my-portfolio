@@ -1,21 +1,10 @@
-import Ecommerce from "../assets/Ecommercesmall.png"
+import Ecommerce from "../assets/Ecommercesmall.png";
 import weatherapp from "../assets/Weathersmall.jpg";
 import todolist from "../assets/todo-list.jpg";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import Header from "./header";
 
-// Replace this with your actual image import
-
 export default function Project() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
-
   const Projects = [
     {
       image: weatherapp,
@@ -54,16 +43,14 @@ export default function Project() {
           {Projects.map((Project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden bg-white/5 rounded-lg shadow-md ring-1 ring-white/10 hover:ring-white/20 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1.5 backdrop-blur-sm"
-              data-aos="fade-up"
+              className="group bg-white/5 rounded-lg shadow-md ring-1 ring-white/10 backdrop-blur-sm hover:ring-white/20 hover:shadow-xl hover:shadow-emerald-400/20 hover:scale-[1.02] transition-transform duration-200"
             >
-              <div className="relative">
+              <div className="overflow-hidden">
                 <img
                   src={Project.image}
                   alt={Project.disc}
-                  className="rounded-t-lg h-[200px] w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="rounded-t-lg h-[200px] w-full object-cover group-hover:scale-105 transition-transform duration-200"
                 />
-                <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
               </div>
               <div className="p-6">
                 <p className="text-center text-lg text-emerald-300 font-semibold mb-4">
@@ -72,7 +59,7 @@ export default function Project() {
                 <div className="flex justify-center">
                   <a
                     href={Project.link}
-                    className="accent-btn text-white px-4 py-2 rounded-md transition duration-200 hover:-translate-y-0.5"
+                    className="accent-btn text-white px-4 py-2 rounded-md hover:bg-emerald-600"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -87,4 +74,3 @@ export default function Project() {
     </>
   );
 }
-

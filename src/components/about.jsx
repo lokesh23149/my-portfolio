@@ -34,26 +34,25 @@ export default function About() {
     ],
   };
 
-  const [displayedPercents, setDisplayedPercents] = useState(() => config.skills.map(() => 0));
+  const [displayedPercents, setDisplayedPercents] = useState(() =>
+    config.skills.map(() => 0)
+  );
 
   useEffect(() => {
     if (!animate) return;
-    let frames = 0;
     const durationMs = 900;
     const startTs = performance.now();
     let rafId;
+
     const tick = (now) => {
-      frames++;
       const t = Math.min(1, (now - startTs) / durationMs);
-      // easeOutCubic
-      const eased = 1 - Math.pow(1 - t, 3);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
       setDisplayedPercents(
         config.skills.map((s) => Math.round(s.percent * eased))
       );
-      if (t < 1) {
-        rafId = requestAnimationFrame(tick);
-      }
+      if (t < 1) rafId = requestAnimationFrame(tick);
     };
+
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
   }, [animate]);
@@ -64,7 +63,7 @@ export default function About() {
       <section
         ref={sectionRef}
         id="about"
-       className="w-full min-h-screen animated-bg flex flex-col md:flex-row items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
+        className="w-full min-h-screen animated-bg flex flex-col md:flex-row items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
       >
         {/* Left image panel */}
         <div
@@ -107,12 +106,25 @@ export default function About() {
               {/* Skill bars */}
               <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                 {config.skills.map((skill, index1) => (
-                  <div key={index1} className="w-full rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow hover:shadow-md transition">
+                  <div
+                    key={index1}
+                    className="w-full rounded-lg border border-white/10 bg-white/5 p-4 backdrop-blur-sm shadow hover:shadow-md transition"
+                  >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-slate-100">{skill.name}</span>
-                      <span className="text-sm text-emerald-300">{displayedPercents[index1]}%</span>
+                      <span className="text-sm font-medium text-slate-100">
+                        {skill.name}
+                      </span>
+                      <span className="text-sm text-emerald-300">
+                        {displayedPercents[index1]}%
+                      </span>
                     </div>
-                    <div className="h-2.5 w-full rounded-full bg-white/10 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={displayedPercents[index1]}>
+                    <div
+                      className="h-2.5 w-full rounded-full bg-white/10 overflow-hidden"
+                      role="progressbar"
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-valuenow={displayedPercents[index1]}
+                    >
                       <div
                         className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 transition-all duration-700 ease-out"
                         style={{
