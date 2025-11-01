@@ -1,5 +1,5 @@
 
-import Resumeimg from "../assets/Hero3small.png";
+import Resumeimg from "../assets/resume.png";
 import React from "react";
 import Header from "./header";
 
@@ -12,19 +12,19 @@ export default function Resume() {
 
       <section
         id="resume"
-        className="w-full min-h-screen animated-bg flex flex-col md:flex-row items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
+        className="w-full min-h-screen animated-bg flex flex-col items-center justify-center py-16 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100"
       >
-        {/* Left Image Section */}
-        <div className="w-full md:w-1/2 flex justify-center items-center">
-            <div className="group relative w-[320px] md:w-[380px]">
-              <div
-                className="absolute -inset-0.5 rounded-2xl blur-lg opacity-40"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, var(--acc1), var(--acc3))",
-                }}
-              />
-              <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1 overflow-hidden">
+        {/* Resume Image */}
+        <div className="flex justify-center items-center mb-8">
+          <div className="group relative w-[320px] md:w-[380px]">
+            <div
+              className="absolute -inset-0.5 rounded-2xl blur-lg opacity-40"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--acc1), var(--acc3))",
+              }}
+            />
+            <div className="relative rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-md shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1 overflow-hidden">
               <div className="flex items-center gap-2 px-4 py-2 border-b border-white/10 bg-white/5">
                 <span
                   className="h-3 w-3 rounded-full"
@@ -44,16 +44,16 @@ export default function Resume() {
               </div>
               <img
                 src={Resumeimg}
-                alt="Resume preview"
+                alt="Resume"
                 className="w-full h-auto object-contain"
               />
             </div>
           </div>
         </div>
 
-        {/* Right Content Section */}
-        <div className="w-full md:w-1/2 flex justify-center items-center">
-          <div className="flex flex-col mx-10 mt-5 text-center md:text-left">
+        {/* Content Section */}
+        <div className="flex justify-center items-center">
+          <div className="flex flex-col mx-10 mt-5 text-center">
             <h1 className="font-bold border-b-2 border-emerald-400 w-fit pr-4 text-3xl mb-4">
               Resume
             </h1>
