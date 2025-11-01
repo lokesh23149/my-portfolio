@@ -1,4 +1,7 @@
-- [x] Optimize animations for mobile performance by reducing durations in App.css
-- [x] Update hero.jsx to remove purple colors from profile image and add hover effect
-- [x] Verify skills animation in about.jsx is working properly
-- [x] Test the changes on mobile
+- [x] Remove AOS animations from about.jsx
+- [x] Add percentage animation effect for skills (increment from 0 to target)
+- [x] Uninstall AOS package
+- [x] Build the project
+- [ ] Test on mobile for smoothness
+- [ ] Push changes to GitHub
+- [ ] Deploy to Vercel
