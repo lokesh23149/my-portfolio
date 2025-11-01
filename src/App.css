@@ -220,6 +220,10 @@ html {
   .skill-bar:hover {
     transform: none;
   }
+  .resume-image:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
 }
 
 /* Framer Motion optimizations for mobile */
