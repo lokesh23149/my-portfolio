@@ -83,7 +83,7 @@ export default function Header({ style }) {
         <select id="theme" value={theme} onChange={(e)=>applyTheme(e.target.value)} className="text-sm rounded-md bg-white/10 text-white px-2 py-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70">
           <option value="emerald">Emerald</option>
           <option value="sky">Sky</option>
-          <option value="purple">Purple</option>
+          <option value="orange">orange</option>
         </select>
       </div>
       {togglemenu && (
