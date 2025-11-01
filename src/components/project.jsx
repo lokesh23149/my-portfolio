@@ -1,21 +1,10 @@
-import Ecommerce from "../assets/Ecommerce.png"
+import Ecommerce from "../assets/Ecommerce.png";
 import weatherapp from "../assets/weather-app.jpg";
 import todolist from "../assets/todo-list.jpg";
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import Header from "./header";
 
-// Replace this with your actual image import
-
 export default function Project() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
-
   const Projects = [
     {
       image: weatherapp,
@@ -55,7 +44,6 @@ export default function Project() {
             <div
               key={index}
               className="group relative overflow-hidden bg-white/5 rounded-lg shadow-md ring-1 ring-white/10 hover:ring-white/20 hover:shadow-2xl transition duration-300 transform hover:-translate-y-1.5 backdrop-blur-sm"
-              data-aos="fade-up"
             >
               <div className="relative">
                 <img
@@ -87,4 +75,3 @@ export default function Project() {
     </>
   );
 }
-
