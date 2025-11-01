@@ -22,15 +22,12 @@ export default function About() {
   };
 
   const [animatedSkills, setAnimatedSkills] = useState(
-    config.skills.map(() => 0)
+    config.skills.map(skill => skill.percent)
   );
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatedSkills(config.skills.map(skill => skill.percent));
-    }, 500); // Delay to start animation after component mounts
-
-    return () => clearTimeout(timer);
+    // Start animation immediately when component mounts
+    setAnimatedSkills(config.skills.map(skill => skill.percent));
   }, []);
 
   return (
