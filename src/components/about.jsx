@@ -23,10 +23,12 @@ export default function About() {
   const [animatedSkills, setAnimatedSkills] = useState(
     config.skills.map(skill => skill.percent)
   );
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     // Start animation immediately when component mounts
     setAnimatedSkills(config.skills.map(skill => skill.percent));
+    setIsVisible(true);
   }, []);
 
   return (
@@ -42,7 +44,7 @@ export default function About() {
         </div>
 
         {/* Right content panel */}
-        <div className="md:w-1/2 flex justify-center">
+        <div className={`md:w-1/2 flex justify-center transition-opacity duration-1000 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="flex flex-col mx-10 md:mx-1 mt-5">
             <h1 className="font-bold border-b-2 border-teal-400 w-fit text-3xl mb-4">
               About Me!
