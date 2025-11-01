@@ -3,5 +3,5 @@
 - [x] Uninstall AOS package
 - [x] Build the project
 - [ ] Test on mobile for smoothness
-- [ ] Push changes to GitHub
-- [ ] Deploy to Vercel
+- [x] Push changes to GitHub
+- [x] Deploy to Vercel
