@@ -1,5 +1,5 @@
-import Ecommerce from "../assets/Ecommerce.png"
-import weatherapp from "../assets/weather-app.jpg";
+import Ecommerce from "../assets/Ecommercesmall.png"
+import weatherapp from "../assets/Weathersmall.jpg";
 import todolist from "../assets/todo-list.jpg";
 import React, { useEffect } from "react";
 import AOS from "aos";
